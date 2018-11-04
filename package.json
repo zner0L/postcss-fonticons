@@ -1,0 +1,29 @@
+{
+    "name": "postcss-fonticons",
+    "version": "1.0.0",
+    "description": "PostCSS plugin to generate font icons from stylesheets.",
+    "main": "index.js",
+    "scripts": {
+        "test": "ava --verbose"
+    },
+    "keywords": [
+        "iconfont",
+        "webfont",
+        "postcss",
+        "postcss-plugin",
+        "tools"
+    ],
+    "author": "zner0L",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zner0L/postcss-fonticons"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "lodash": "^4.17.11",
+        "postcss": "^7.0.5",
+        "svg2ttf": "^4.1.0",
+        "svgicons2svgfont": "^9.0.3",
+        "ttf2woff": "^2.0.1"
+    }
+}

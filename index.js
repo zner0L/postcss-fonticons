@@ -135,14 +135,12 @@ function replaceIconFontDeclarations (fontName, postCssRoot, svgPaths) {
  * @param resolvedRelativeSvgs {object} The svg path information
  */
 function addFontDeclaration (fontName, postCssRoot, useCssModules, enforcedSvgHeight, svgPaths) {
-    console.log(svgPaths);
     // The options are passed as a query string so we use the relative svg paths to reduce the path length per file
     const options = { svgs: svgPaths.relative, name: fontName, enforcedSvgHeight: enforcedSvgHeight };
 
    return new Promise((resolve, reject) => createIconFont(options.svgs, options).then((result) => {
         // Return the font to webpack
         const url = '"data:application/x-font-woff;charset=utf-8;base64,' + result + '"';
-        console.log(url);
         postCssRoot.prepend(postcss.parse(
             '@font-face { ' +
             'font-family: ' + fontName + '; src:url(' + url + ') format(\'woff\');' +

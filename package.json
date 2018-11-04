@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "description": "PostCSS plugin to generate font icons from stylesheets.",
     "main": "index.js",
-    "scripts": {
-        "test": "ava --verbose"
-    },
     "keywords": [
         "iconfont",
         "webfont",

@@ -12,9 +12,7 @@ function processCss(css, options = {}) {
 }
 
 fs.readFile('./main.css', (err, res) => {
-    processCss(res.toString(), { iconPath: './' }).then(result => {
-        console.log('processor', result.processor);
-        console.log('css', result.css);
+    processCss(res.toString(), { iconPath: './', enforcedTimestamp: 1528942455 }).then(result => {
         fs.writeFile("./dist/main.css", result.css, function (err) {
             if (err) {
                 return console.log(err);

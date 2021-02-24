@@ -59,7 +59,7 @@ module.exports = function createIconFont(fs, icons, options) {
         });
         fontStream.end();
     })
-        .then((svgFont) => svg2ttf(svgFont, {}).buffer)
+        .then((svgFont) => svg2ttf(svgFont, {ts: options.enforcedTimestamp ? options.enforcedTimestamp : undefined}).buffer)
         .then((ttfFont) => ttf2woff(ttfFont).buffer)
         .then((woffFont) => Buffer.from(woffFont).toString('base64'));
 };

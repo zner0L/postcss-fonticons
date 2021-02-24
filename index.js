@@ -151,10 +151,11 @@ function replaceIconFontDeclarations(fontName, postCssRoot, svgPaths) {
  * @param postCssRoot {object} The postCss root object
  * @param enforcedSvgHeight {number} the enforced height of the svg font
  * @param resolvedRelativeSvgs {object} The svg path information
+ * @param enforcedTimestamp {Number} Unix timestamp to replace a generated one in the TTF conversion step.
  */
-function addFontDeclaration(fontName, postCssRoot, enforcedSvgHeight, svgPaths) {
+function addFontDeclaration(fontName, postCssRoot, enforcedSvgHeight, svgPaths, enforcedTimestamp) {
     // The options are passed as a query string so we use the relative svg paths to reduce the path length per file
-    const options = { svgs: svgPaths.relative, name: fontName, enforcedSvgHeight: enforcedSvgHeight };
+    const options = { svgs: svgPaths.relative, name: fontName, enforcedSvgHeight: enforcedSvgHeight, enforcedTimestamp };
 
     return new Promise((resolve, reject) => createIconFont(fs, options.svgs, options).then((result) => {
         // Return the font to webpack
@@ -198,6 +199,10 @@ module.exports = postcss.plugin('postcss-fonticons', options => function (root, 
 
         // the path to the directory in which the svgs are stored (with trailing slash)
         iconPath: './icons/',
+
+        // UNIX timestamp to overwrite the timestamp in the TTF conversion step.
+        // Set this to a fixed value to get the same build results in every run.
+        enforcedTimestamp: null
     };
     const config = {
         ...defaults,
@@ -232,7 +237,7 @@ module.exports = postcss.plugin('postcss-fonticons', options => function (root, 
             // Update the css
             const processCssPromise = Promise.all([
                 // add the font faces
-                addFontDeclaration(fontName, root, config.enforcedSvgHeight, svgPaths),
+                addFontDeclaration(fontName, root, config.enforcedSvgHeight, svgPaths, config.enforcedTimestamp),
                 // replace the `font-icon` occurences
                 replaceIconFontDeclarations(fontName, root, svgPaths)
             ]);

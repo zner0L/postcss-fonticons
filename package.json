@@ -18,7 +18,7 @@
     "license": "MIT",
     "dependencies": {
         "path": "^0.12.7",
-        "postcss": "^7.0.27",
+        "postcss": "^8.2.10",
         "svg2ttf": "^4.3.0",
         "svgicons2svgfont": "^9.1.1",
         "ttf2woff": "^2.0.1"

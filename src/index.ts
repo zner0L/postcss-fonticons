@@ -72,7 +72,7 @@ const addFontDeclaration = (
         );
 
 type PostcssFonticonsOptions = {
-    /** Allows to prefix the font name to prevent collisions. */
+    /** Use a unique font name to prevent collisions. */
     fontName: string;
 
     /** The svg size requires all svgs to have the same height usually scaling the icons to 1000px should be fine, but if you prefer another value set it here. */

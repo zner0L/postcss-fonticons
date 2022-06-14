@@ -19,16 +19,17 @@
         "url": "https://github.com/zner0L/postcss-fonticons"
     },
     "scripts": {
-        "build": "tsc"
+        "build": "tsc",
+        "prepublish": "yarn build"
     },
     "license": "MIT",
     "dependencies": {
         "fs": "^0.0.1-security",
         "path": "^0.12.7",
         "stream": "^0.0.2",
-        "svg2ttf": "^4.3.0",
+        "svg2ttf": "^6.0.3",
         "svgicons2svgfont": "^10.0.6",
-        "ttf2woff": "^2.0.1"
+        "ttf2woff": "^3.0.0"
     },
     "devDependencies": {
         "@types/node": "^17.0.42",

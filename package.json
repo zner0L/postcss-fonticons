@@ -1,6 +1,6 @@
 {
     "name": "postcss-fonticons",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "PostCSS plugin to generate font icons from stylesheets.",
     "main": "dist/index.js",
     "keywords": [
@@ -24,9 +24,6 @@
     },
     "license": "MIT",
     "dependencies": {
-        "fs": "^0.0.1-security",
-        "path": "^0.12.7",
-        "stream": "^0.0.2",
         "svg2ttf": "^6.0.3",
         "svgicons2svgfont": "^10.0.6",
         "ttf2woff": "^3.0.0"
@@ -34,7 +31,7 @@
     "devDependencies": {
         "@types/node": "^17.0.42",
         "@types/svgicons2svgfont": "^10.0.1",
-        "postcss": "^8.4.14",
+        "postcss": "^8.0.0",
         "typescript": "^4.7.3"
     },
     "peerDependencies": {
